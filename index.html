@@ -25,6 +25,26 @@
         text-decoration: none;
       }
 
+      .slides > article pre {
+        background: transparent;
+        border: none;
+        box-shadow: none;
+      }
+
+      .slides > article.dark {
+        background: #1c1c1c !important;
+      }
+
+        .slides > article.dark,
+        .slides > article.dark code,
+        .slides > article.dark a {
+          color: #eee;
+        }
+
+      .slides > article {
+        background: #f5f5f5 !important;
+      }
+
       .slides.template-bekk > article:not(.nobackground):not(.fill) {
         background: #fff url(images/bekk-logo-small.png) 710px 625px no-repeat;
       }
@@ -129,6 +149,7 @@
           TODO
         </h2>
         <ul>
+          <li>&Oslash;k tekstst&oslash;rrelse og fjern verbos tekst.
           <li>Fjern/oppdater mediaqueri.es referenser/bilder.
           <li>Legg til vertikalt eksempel (tittel: Ikke bare horisontalt).
           <li>Ta tid og kutt overfl&oslash;dig (30 min).
@@ -162,19 +183,19 @@
         </div>
       </article>
 
-      <article>
+      <article class="dark">
         <p class="question">
           Har du skrevet HTML sider for h&aring;nd?
         </p>
       </article>
 
-      <article>
+      <article class="dark">
         <p class="question">
           Har du stilgitt HTML sider med CSS?
         </p>
       </article>
       
-      <article>
+      <article class="dark">
         <p class="question">
           Har du brukt CSS3 egenskaper for stiling?
         </p>
@@ -197,7 +218,7 @@
         </div>
       </article>
 
-      <article class="nobackground">
+      <article class="dark nobackground">
         <p>
           <img class="desktop" src="images/bk.desktop.png">
         </p>
@@ -206,13 +227,13 @@
         </div>
       </article>
 
-      <article class="nobackground">
+      <article class="dark nobackground">
         <p>
           <img class="tablet" src="images/bk.tablet.png">
         </p>
       </article>
 
-      <article class="nobackground">
+      <article class="dark nobackground">
         <p>
           <img class="smartphone" src="images/bk.smartphone.png">
         </p>
@@ -251,7 +272,7 @@
         </div>
       </article>
 
-      <article class="nobackground">
+      <article class="dark nobackground">
         <p>
           <img class="desktop" src="images/sta.desktop.png">
         </p>
@@ -260,13 +281,13 @@
         </div>
       </article>
 
-      <article class="nobackground">
+      <article class="dark nobackground">
         <p>
           <img class="tablet" src="images/sta.tablet.png">
         </p>
       </article>
 
-      <article class="nobackground">
+      <article class="dark nobackground">
         <p>
           <img class="smartphone" src="images/sta.smartphone.png">
         </p>
@@ -938,7 +959,7 @@ var responsiveTables = function() {
         </p>
       </article>
 
-      <article class="nobackground">
+      <article class="dark nobackground">
         <p>
           <img class="smartphone" src="images/bg.smartphone.png">
         </p>
@@ -947,13 +968,13 @@ var responsiveTables = function() {
         </div>
       </article>
 
-      <article class="nobackground">
+      <article class="dark nobackground">
         <p>
           <img class="tablet" src="images/bg.tablet.png">
         </p>
       </article>
 
-      <article class="nobackground">
+      <article class="dark nobackground">
         <p>
           <img class="desktop" src="images/bg.desktop.png">
         </p>
