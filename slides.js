@@ -547,7 +547,7 @@ function addFontStyle() {
   el.rel = 'stylesheet';
   el.type = 'text/css';
   el.href = 'http://fonts.googleapis.com/css?family=' +
-            'Open+Sans:regular,semibold,italic,italicsemibold|Droid+Sans+Mono';
+            'Signika:400,600|Droid+Sans+Mono';
 
   document.body.appendChild(el);
 };
