@@ -68,8 +68,8 @@ var prependHeadersToTableCells = function(table) {
     $("td", tr).each(function(td, i) {
       if($(".header", td).length === 0) {
         var header = headers[i];
-        $(td).html("<span class='header'>" + header.trim()
-                   + ":</span> " + $(td).html());
+        $(td).html("<strong class='header'>" + header.trim()
+                   + ":</strong> " + $(td).html());
       }
     });
   });
