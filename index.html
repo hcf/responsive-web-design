@@ -883,11 +883,13 @@ tr {
         <section>
 <pre>
 var responsiveTables = function() {
-  $("article table").each(function(table) {
-    if($(table).css("display") === "block") {
-      prependHeadersToTableCells(table);
-    } else if($(table).css("display") === "table") {
-      removeHeadersFromTableCells(table);
+  $("article table").each(function() {
+    var $table = $(this);
+
+    if($table.css("display") === "block") {
+      prependHeadersToTableCells($table);
+    } else if($table.css("display") === "table") {
+      removeHeadersFromTableCells($table);
     }
   });
 }

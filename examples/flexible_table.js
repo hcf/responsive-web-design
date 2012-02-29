@@ -18,10 +18,8 @@ $(window).on('resize', function() {
 });
 
 var prependHeadersToTableCells = function(table) {
-  var headers = [];
-  table.find("th").each(function() {
-    var $th = $(this);
-    headers.push($th.text());
+  var headers = $.map(table.find("th"), function(th) {
+    return $(th).text();
   });
 
   table.find("tr").each(function() {
