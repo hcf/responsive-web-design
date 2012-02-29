@@ -928,6 +928,7 @@ var removeHeadersFromTableCells = function(table) {
           <a href="examples/flexible_table_and_js.html">Eksempel</a>
         </div>
       </article>
+
       <article class="fill">
         <h2>
           B&aring;ndbredde
@@ -957,6 +958,45 @@ var removeHeadersFromTableCells = function(table) {
 }
 </pre>
         </section>
+      </article>
+
+      <article>
+        <h3>
+          Repsonsive bilder
+        </h3>
+        <section>
+<pre>
+&lt;noscript data-widths="400,600,800" data-base-src="responsive.png"&gt;
+  &lt;img src="responsive-400.png"&gt;
+&lt;/noscript&gt;
+</pre>
+        </section>
+      </article>
+
+      <article>
+        <section>
+<pre>
+$("noscript").each(function() {
+  var ns = $(this),
+      best_fit = 0,
+      content_width = ns.parent().width(),
+      img_widths = $.map(ns.data("widths").split(","),
+                         function(width) { return parseInt(width) });
+
+  $.each(img_widths, function(i, img_width) {
+    best_fit = i;
+    return img_width < content_width;
+  });
+
+  var src = ns.data("base-src").replace(/(.+)(\.\w{3})/,
+                    "$1-" + img_widths[best_fit] + "$2")
+  ns.after($("&lt;img&gt;").attr("src", src));
+});
+</pre>
+        </section>
+        <div class='source'>
+          <a href="examples/responsive_images.html">Eksempel</a>
+        </div>
       </article>
 
       <article class="fill">
