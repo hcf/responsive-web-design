@@ -37,7 +37,7 @@ var prependHeadersToTableCells = function(table) {
 }
 
 var removeHeadersFromTableCells = function(table) {
-  $("tr td .header", table).remove();
+  table.find("tr td .header").remove();
 }
 
 var responsiveTables = function() {

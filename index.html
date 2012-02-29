@@ -895,11 +895,39 @@ var responsiveTables = function() {
 }
 </pre>
         </section>
+      </article>
+
+      <article class="smaller">
+        <section>
+<pre>
+var prependHeadersToTableCells = function(table) {
+  var headers = $.map(table.find("th"), function(th) {
+    return $(th).text();
+  });
+
+  table.find("tr").each(function() {
+    var $tr = $(this);
+
+    $tr.find("td").each(function(i) {
+      var $td = $(this);
+      if($td.find(".header").length === 0) {
+        var header = headers[i];
+        $td.html("&lt;strong class='header'&gt;" + header.trim()
+                 + ":&lt;/strong&gt; " + $td.html());
+      }
+    });
+  });
+}
+
+var removeHeadersFromTableCells = function(table) {
+  table.find("tr td .header").remove();
+}
+</pre>
+        </section>
         <div class='source'>
           <a href="examples/flexible_table_and_js.html">Eksempel</a>
         </div>
       </article>
-
       <article class="fill">
         <h2>
           B&aring;ndbredde
