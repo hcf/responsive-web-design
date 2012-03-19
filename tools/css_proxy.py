@@ -6,7 +6,7 @@ import sys
 
 from SimpleHTTPServer import SimpleHTTPRequestHandler
 
-PORT = 8080
+PORT = 9999
 
 URI_PREFIX = ""
 CSS_FILE = ""
