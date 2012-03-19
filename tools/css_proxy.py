@@ -5,23 +5,21 @@
 
 import SocketServer
 import urllib
+import sys
 
 from SimpleHTTPServer import SimpleHTTPRequestHandler
-from urlparse import urlparse
-from cgi import parse_qs
 
-URL_PREFIX = "http://www.wired.com"
-PORT = 40808
+PORT = 8080
 
-CSS_SWAP = []
+URI_PREFIX = ""
+CSS_FILE = ""
 
-class ApProxy(SimpleHTTPRequestHandler):
+FILTER_PATHS = ["/resources", "/external", "/js"]
+
+class CSSProxy(SimpleHTTPRequestHandler):
 
     def filter_path(self):
-        for prefix in ("/resources", "/external", "/js"):
-            if self.path.startswith(prefix):
-                return True
-        return False
+        return any([self.path.startswith(p) for p in FILTER_PATHS])
 
     def do_GET(self):
         if self.filter_path():
@@ -31,18 +29,15 @@ class ApProxy(SimpleHTTPRequestHandler):
             self.end_headers()
             return
 
-        query = parse_qs(urlparse(self.path).query)
-        if "swap_css" in query:
-            CSS_SWAP.append(query["swap_css"][0])
 
-        if self.path.startswith("/css") and len(CSS_SWAP):
-            self.path = "/%s" % CSS_SWAP.pop()
+        if self.path.endswith(".css"):
+            self.path = "/%s" % CSS_FILE
             f = self.send_head()
             if f:
                 self.copyfile(f, self.wfile)
                 f.close()
         else:
-            url = URL_PREFIX + self.path
+            url = URI_PREFIX + self.path
             f = urllib.urlopen(url)
             if f:
                 self.copyfile(f, self.wfile)
@@ -58,8 +53,15 @@ class ThreadedTCPServer(SocketServer.ThreadingMixIn, SocketServer.TCPServer):
 
 
 if __name__ == "__main__":
+    if len(sys.argv) != 3:
+        sys.stderr.write('Usage: %s <uri> <css>\n' % sys.argv[0])
+        sys.exit(1)
+
+    URI_PREFIX = sys.argv[1]
+    CSS_FILE = sys.argv[2]
+
     try:
-        httpd = ThreadedTCPServer(("", PORT), ApProxy)
+        httpd = ThreadedTCPServer(("", PORT), CSSProxy)
         httpd.serve_forever()
     except KeyboardInterrupt:
         httpd.socket.close()
