@@ -29,7 +29,7 @@ class CSSProxy(SimpleHTTPRequestHandler):
             return
 
 
-        if self.path.endswith(".css"):
+        if self.path.split("?", 1)[0].endswith(".css"):
             if not len(CSS_SWAP_ONCE_MUTEX):
                 self.not_found()
                 return
