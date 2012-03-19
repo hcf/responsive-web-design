@@ -74,6 +74,6 @@ if __name__ == "__main__":
     try:
         httpd = ThreadedTCPServer(("", PORT), CSSProxy)
         httpd.serve_forever()
-    except KeyboardInterrupt:
+    except (KeyboardInterrupt, SystemExit):
         httpd.socket.close()
         httpd.shutdown()
