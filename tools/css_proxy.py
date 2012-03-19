@@ -14,6 +14,8 @@ PORT = 8080
 URI_PREFIX = ""
 CSS_FILE = ""
 
+CSS_SWAP_ONCE_MUTEX = []
+
 FILTER_PATHS = ["/resources", "/external", "/js"]
 
 class CSSProxy(SimpleHTTPRequestHandler):
@@ -22,15 +24,21 @@ class CSSProxy(SimpleHTTPRequestHandler):
         return any([self.path.startswith(p) for p in FILTER_PATHS])
 
     def do_GET(self):
+        if self.path == "/":
+            CSS_SWAP_ONCE_MUTEX.append(True)
+
         if self.filter_path():
-            self.send_response(404, "File not found")
-            self.send_header("Content-Type", self.error_content_type)
-            self.send_header('Connection', 'close')
-            self.end_headers()
+            self.not_found()
             return
 
 
         if self.path.endswith(".css"):
+            if not len(CSS_SWAP_ONCE_MUTEX):
+                self.not_found()
+                return
+
+            CSS_SWAP_ONCE_MUTEX.pop()
+
             self.path = "/%s" % CSS_FILE
             f = self.send_head()
             if f:
@@ -42,6 +50,12 @@ class CSSProxy(SimpleHTTPRequestHandler):
             if f:
                 self.copyfile(f, self.wfile)
                 f.close()
+
+    def not_found(self):
+        self.send_response(404, "File not found")
+        self.send_header("Content-Type", self.error_content_type)
+        self.send_header('Connection', 'close')
+        self.end_headers()
 
     def log_request(self, code='-', size='-'):
         self.log_message('"%s" %s %s',
