@@ -1,7 +1,4 @@
 #!/usr/bin/env python
-#
-# Usage: http://localhost:40808/?swap_css=<local.css>
-#
 
 import SocketServer
 import urllib
