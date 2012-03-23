@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+
+<!--
+  Google HTML5 slide template
+
+  Authors: Luke Mahé (code)
+           Marcin Wichary (code and design)
+
+           Dominic Mazzoni (browser compatibility)
+           Charles Chen (ChromeVox support)
+
+  URL: http://code.google.com/p/html5slides/
+-->
+
+<html>
+  <head>
+    <title>Responsive Web Design</title>
+
+    <meta charset='utf-8'>
+    <script
+      src='slides.js'></script>
+    <style>
+
+      a {
+        text-decoration: none;
+      }
+
+      .slides > article pre {
+        background: transparent;
+        border: none;
+        box-shadow: none;
+      }
+
+      .slides > article.dark {
+        background: #1c1c1c !important;
+      }
+
+        .slides > article.dark,
+        .slides > article.dark code,
+        .slides > article.dark a,
+        .slides > article.dark h3 {
+          color: #eee;
+        }
+
+      .slides > article {
+        background: #f5f5f5 !important;
+      }
+
+      .slides.template-bekk > article:not(.nobackground):not(.fill) {
+        background: #fff url(images/bekk-logo-small.png) 710px 625px no-repeat;
+      }
+
+      .slides > article h3.huge {
+        font-size: 70px;
+        line-height: 1;
+        margin-top: 50px;
+        text-align: center;
+      }
+        .slides > article.dark h3.huge span {
+          color: #444;
+        }
+
+      .slides > article.fill h2 {
+        font-size: 100px;
+        line-height: 1;
+
+        padding: 0;
+        margin: 0;
+        margin-top: 200px;
+        padding-right: 40px;
+
+        font-weight: 600;
+
+        letter-spacing: -3px;
+
+        color: #fff;
+        position: static;
+        text-shadow: rgba(0, 0, 0, .75) 3px 3px 5px;
+      }
+
+      .slides > article.fill .number {
+        display: block;
+        font-size: 2em;
+        margin: -100px 0 100px;
+      }
+
+      article ul.long {
+        -moz-column-count: 2;
+        -webkit-column-count: 2;
+        column-count: 2;
+        margin-left: 0;
+      }
+
+      article ol li:before,
+      article ul.long li:before {
+        content: "";
+      }
+
+      article p.question {
+        font-size: 80px;
+        line-height: 1.25;
+        margin-top: 150px;
+        text-align: center;
+      }
+
+      article img.smartphone,
+      article img.tablet,
+      article img.desktop {
+        display: block;
+        margin: 0 auto;
+      }
+
+      article img.smartphone {
+        background: transparent url(images/iphone.png) 0 0 no-repeat;
+        background-size: 100%;
+        padding: 152px 28px 175px 32px;
+        padding: 114px 21px 131px 24px;
+        height: 416px;
+        height: 312px;
+        width: 320px;
+        width: 240px;
+      }
+
+      article img.tablet {
+        background: transparent url(images/ipad.png) 0 0 no-repeat;
+        background-size: 100%;
+        padding: 144px 113px 122px 111px ;
+        padding: 72px 56px 61px 55px ;
+        height: 1004px;
+        height: 502px;
+        width: 768px;
+        width: 384px;
+      }
+
+      article img.desktop {
+        background: transparent url(images/mac.png) 0 0 no-repeat;
+        background-size: 100%;
+        padding: 107px 72px 79px 57px;
+        padding: 71px 48px 52px 38px;
+        height: 714px;
+        height: 476px;
+        width: 1010px;
+        width: 673px;
+      }
+
+      .bw.fill img {
+        -webkit-filter: grayscale(1);
+      }
+      article h1 {
+        font-size: 80px;
+        line-height: 1;
+        padding-right: 0;
+        margin-bottom: 40px;
+      }
+
+    article.centered img {
+      display: block;
+      height: 100%;
+      margin: 0 auto;
+    }
+    </style>
+  </head>
+
+  <body style='display: none'>
+
+    <section class='slides layout-regular template-bekk'>
+
+      <article>
+        <h1>
+          Responsive Web Design
+        </h1>
+        <p>
+          Hans-Christian Fjeldberg
+          <br>
+          Eivind Uggedal &mdash; <a href="http://twitter.com/uggedal">@uggedal</a>
+          <br>
+          <p>
+          Fagdag &mdash; 23. mars 2012
+          </p>
+        </p>
+      </article>
+
+      <!--
+      <article class="fill">
+        <h2>
+          H&aring;ndsopprekking
+        </h2>
+        <p>
+          <img src="images/hands.jpg">
+        </p>
+        <div class='source white'>
+          http://flic.kr/p/7KFqnJ
+        </div>
+      </article>
+
+      <article class="dark">
+        <p class="question">
+          Har du skrevet HTML sider for h&aring;nd?
+        </p>
+      </article>
+
+      <article class="dark">
+        <p class="question">
+          Har du stilgitt HTML sider med CSS?
+        </p>
+      </article>
+      
+      <article class="dark">
+        <p class="question">
+          Har du brukt CSS3 egenskaper for stiling?
+        </p>
+        <p style="text-align: center">
+          (<code>box-shadow</code>,
+          <code>border-radius</code>,
+          <code>animation</code> etc.)
+        </p>
+      </article>
+      -->
+
+      <article class="fill">
+        <h2>
+          Problem
+        </h2>
+        <p>
+          <img src="images/cube_scrambled.jpg">
+        </p>
+        <div class='source white'>
+          http://flic.kr/p/5CNci
+        </div>
+      </article>
+
+      <article class="dark nobackground">
+        <p>
+          <img class="desktop" src="images/bk.desktop.png">
+        </p>
+        <div class='source'>
+          <a href="http://bekk.no/">bekk.no</a>
+        </div>
+      </article>
+
+      <article class="dark nobackground">
+        <p>
+          <img class="tablet" src="images/bk.tablet.png">
+        </p>
+      </article>
+
+      <article class="dark nobackground">
+        <p>
+          <img class="smartphone" src="images/bk.smartphone.png">
+        </p>
+      </article>
+
+      <article class="fill">
+        <h2>
+          L&oslash;sning
+        </h2>
+        <p>
+          <img src="images/cube_solved.jpg">
+        </p>
+        <div class='source white'>
+          http://flic.kr/p/pbBQE
+        </div>
+      </article>
+
+      <article class="dark">
+        <h3 class="huge">
+          <br>
+          <br>
+          En mobilside, en lesebrettside og en desktop side
+        </h3>
+      </article>
+
+      <article class="centered" style="background: #fff !important">
+        <p>
+          <img style="height: 105%" src="images/sb1_iphone.jpg">
+        </p>
+      </article>
+
+      <article class="centered" style="background: #fff !important">
+        <p>
+          <img style="height: 115%" src="images/sb1_ipad.jpg">
+        </p>
+      </article>
+
+      <article class="dark">
+        <h3 class="huge">
+          <br>
+          <br>
+          <br>
+          Responsive Web Design
+        </h3>
+      </article>
+
+      <!--
+      <article class="nobackground">
+        <p>
+          <img class="desktop" src="images/alistapart.png">
+        </p>
+        <div class='source'>
+          <a href="http://www.alistapart.com/articles/responsive-web-design/">www.alistapart.com/articles/responsive-web-design/</a>
+        </div>
+      </article>
+      -->
+
+      <article class="dark nobackground">
+        <p>
+          <img class="desktop" src="images/sta.desktop.png">
+        </p>
+        <div class='source'>
+          <a href="http://staffanstorp.se/">staffanstorp.se</a>
+        </div>
+      </article>
+
+      <article class="dark nobackground">
+        <p>
+          <img class="tablet" src="images/sta.tablet.png">
+        </p>
+      </article>
+
+      <article class="dark nobackground">
+        <p>
+          <img class="smartphone" src="images/sta.smartphone.png">
+        </p>
+      </article>
+
+      <article class="dark">
+        <h3 class="huge">
+          Fleksibel og enhets-uavhengig design
+        <br>
+        <br>
+          Ikke mobildesign eller design for spesifikke enheter!
+        </h3>
+        <!--
+        <ul class="build">
+          <li>
+            Umulig &aring; ha oversikt over alle mulige skjermst&oslash;rrelser
+            p&aring; mobiltelefoner, lesebrett, netbooks, laptoper, stasjon&aelig;re&hellip;
+          </li>
+          <li>
+            Kan du se inn i fremtiden? Hva slags enheter og skjermst&oslash;rrelser vil komme?
+          </li>
+        </ul>
+        -->
+      </article>
+
+      <article class="smaller">
+        <q>
+          The primary design principle underlying the Web’s usefulness and
+          growth is <strong>universality</strong>.
+          [&hellip;]
+          And it should be accessible from
+          <strong>any kind of hardware</strong> that can connect to the
+          Internet: stationary or mobile, small screen or large.
+        </q>
+        <div class="author">
+          Tim Berners&ndash;Lee
+        </div>
+      </article>
+
+      <article>
+        <q>
+          Responsiveness isn't just something we can build into our product.
+          It's an attitute we can adopt.
+        </q>
+        <div class="author">
+          Wilson Miner
+        </div>
+      </article>
+
+      <article class="dark">
+        <!--
+        <h3>
+          Responsive byggestener
+        </h3>
+        -->
+        <h3 class="huge">
+          <br>
+          <span>#1</span> Flytende grid
+          <br>
+          <br>
+          <span>#2</span> Fleksible bilder
+          <br>
+          <br>
+          <span>#3</span> Media queries
+        </h3>
+      </article>
+
+      <article class="fill">
+        <h2>
+          <span class="number">#1</span> Flytende grid
+        </h2>
+        <p>
+          <img src="images/buoy.jpg">
+        </p>
+        <div class='source white'>
+          http://flic.kr/p/3rYQPf
+        </div>
+      </article>
+
+      <article>
+        <h3>
+          HTML
+        </h3>
+        <section>
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;title&gt;Fast eller flytende grid&lt;/title&gt;
+&lt;div id="page"&gt;
+  &lt;article&gt;Hovedinnhold&lt;/article&gt;
+  &lt;aside&gt;Sekund&aelig;rt innhold&lt;/aside&gt;
+&lt;/div&gt;
+</pre>
+        </section>
+      </article>
+
+      <article>
+        <h3>
+          Fast grid med CSS
+        </h3>
+        <section>
+<pre>
+#page {
+  margin: 0 auto;
+  padding: 0 1em;
+  width: 50em;
+}
+#page &gt; article {
+  float: left;
+  margin-right: 2.5em;
+  width: 35em;
+}
+#page &gt; aside {
+  float: right;
+  width: 12.5em;
+}
+</pre>
+        </section>
+        <div class='source'>
+          <a href="examples/fixed_grid.html">Eksempel</a>
+        </div>
+      </article>
+
+      <article>
+        <h3>
+          Flytende grid med CSS
+        </h3>
+        <section>
+<pre>
+#page {
+  margin: 0 auto;
+  padding: 0 1em;
+  max-width: 50em;
+}
+#page &gt; article {
+  float: left;
+  margin-right: 5%;
+  width: 70%;
+}
+#page &gt; aside {
+  float: right;
+  width: 25%;
+}
+</pre>
+        </section>
+        <div class='source'>
+          <a href="examples/fluid_grid.html">Eksempel</a>
+        </div>
+      </article>
+
+      <article class="fill">
+        <h2>
+          <span class="number">#2</span> Fleksible bilder
+        </h2>
+        <p>
+          <img src="images/straws.jpg">
+        </p>
+        <div class='source'>
+          http://flic.kr/p/7vALKt
+        </div>
+      </article>
+
+      <article>
+        <h3>
+          HTML
+        </h3>
+        <section>
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;title&gt;Fast eller flytende grid&lt;/title&gt;
+&lt;div id="page"&gt;
+  &lt;article&gt;
+    Hovedinnhold
+
+    &lt;figure&gt;
+      &lt;img src="city.jpg" alt="Vancouver"&gt;
+      &lt;figcaption&gt;
+        &lt;a href="http://flic.kr/p/7LNQPf"&gt;Head on Vancouver&lt;/a&gt;
+      &lt;/figcaption&gt;
+    &lt;/figure&gt;
+
+  &lt;/article&gt;
+  &lt;aside&gt;Sekund&aelig;rt innhold&lt;/aside&gt;
+&lt;/div&gt;
+</pre>
+        </section>
+        <div class='source'>
+          <a href="examples/inflexible_images.html">Eksempel</a>
+        </div>
+      </article>
+
+      <article>
+        <h3>
+          Fleksible bilder med CSS
+        </h3>
+        <section>
+<pre>
+img {
+  max-width: 100%;
+}
+</pre>
+        </section>
+        <div class='source'>
+          <a href="examples/flexible_images.html">Eksempel</a>
+        </div>
+      </article>
+
+      <article>
+        <h3>
+          Samme teknikk med andre typer media
+        </h3>
+        <section>
+<pre>
+&lt;video controls autoplay&gt;
+  &lt;source src="bunny.webm" type='video/webm; codecs="vp8, vorbis"'&gt;
+&lt;/video&gt;
+</pre>
+        </section>
+        <section>
+<pre>
+video {
+  max-width: 100%;
+}
+</pre>
+        </section>
+        <div class='source'>
+          <a href="examples/flexible_video.html">Eksempel</a>
+        </div>
+      </article>
+
+      <article class="fill">
+        <h2>
+          <span class="number">#3</span> Media queries
+        </h2>
+        <p>
+          <img src="images/magnifying.jpg">
+        </p>
+        <div class='source white'>
+          http://flic.kr/p/64GVLT
+        </div>
+      </article>
+
+      <article>
+        <h3>
+          CSS2 media typer
+        </h3>
+        <section>
+<pre>&lt;link rel="stylesheet" media="screen" href="/screen.css"&gt;
+&lt;link rel="stylesheet" media="print" href="/print.css"&gt;</pre>
+        </section>
+        <section>
+<pre>@media screen {
+  body {
+    background: #000;
+    color: #fff;
+  }
+}
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+  }
+}</pre>
+        </section>
+      </article>
+
+      <article>
+        <h3>
+          CSS3 media queries
+        </h3>
+        <section>
+<pre>
+&lt;link rel="stylesheet" media="screen and (max-width: 35em)"
+      href="/narrow.css"&gt;</pre>
+        </section>
+        <section>
+<pre>
+@media screen and (max-width: 35em) {
+  #page &gt; article,
+  #page &gt; aside {
+    float: none;
+    width: auto;
+  }
+  #page &gt; article {
+    margin-right: 0;
+  }
+}</pre>
+        </section>
+        <div class='source'>
+          <a href="examples/media_queries.html">Eksempel</a>
+        </div>
+      </article>
+
+      <!--
+      <article>
+        <h3>
+          Flere media egenskaper
+        </h3>
+        <p>De fleste av disse kan ha <code>min-</code> og <code>max-</code> prefiks.</p>
+        <ul class="long">
+          <li><code>width</code></li>
+          <li><code>device-width</code></li>
+          <li><code>height</code></li>
+          <li><code>device-height</code></li>
+          <li><code>orientation</code></li>
+          <li><code>aspect-ratio</code></li>
+          <li><code>device-aspect-ratio</code></li>
+          <li><code>color</code></li>
+          <li><code>color-index</code></li>
+          <li><code>monochrome</code></li>
+          <li><code>resolution</code></li>
+          <li><code>scan</code></li>
+          <li><code>grid</code></li>
+        </li>
+      </article>
+      -->
+
+      <!--
+      <article>
+        <h3>
+          Viewport
+        </h3>
+        <ul>
+          <li>
+            En piksel p&aring; skjermen er ikke alltid lik en piksel i CSS
+          </li>
+        </ul>
+        <section>
+          <pre>&lt;meta name="viewport" content="width=device-width"&gt;</pre>
+        </section>
+      </article>
+      -->
+
+      <article class="fill">
+        <h2>
+          Mobile first
+        </h2>
+        <p>
+          <img src="images/celltower.jpg">
+        </p>
+        <div class='source white'>
+          http://flic.kr/p/6c2EL3
+        </div>
+      </article>
+
+      <article class="smaller">
+        <section>
+<pre>
+#page {
+  margin: 0 auto;
+  padding: 0 1em;
+  max-width: 50em;
+}
+img {
+  max-width: 100%;
+}
+
+@media screen and (min-width: 35em) {
+  #page &gt; article {
+    float: left;
+    margin-right: 5%;
+    width: 70%;
+  }
+  #page &gt; aside {
+    float: right;
+    width: 25%;
+  }
+}
+
+@media screen and (min-width: 60em) {
+  body {
+    font-size: 125%;
+  }
+}</pre>
+        </section>
+        <div class='source'>
+          <a href="examples/mobile_first.html">Eksempel</a>
+        </div>
+      </article>
+
+      <article class="fill">
+        <h2>
+          Nettleserst&oslash;tte
+        </h2>
+        <p>
+          <img src="images/fox.jpg">
+        </p>
+        <div class='source white'>
+          http://flic.kr/p/qLp7Q
+        </div>
+      </article>
+
+      <article>
+        <table> 
+          <tr> 
+            <th> 
+              Nettleser
+            <th> 
+              Media queries
+            <th> 
+              <code>max-width</code>
+          <tr> 
+            <td> 
+              Firefox
+            <td> 
+              3.5
+            <td> 
+              &#10003;
+          <tr> 
+            <td> 
+              Chrome
+            <td> 
+              4.0
+            <td> 
+              &#10003;
+          <tr> 
+            <td> 
+              Safari
+            <td> 
+              3.1
+            <td> 
+              &#10003;
+          <tr> 
+            <td> 
+              Opera
+            <td> 
+              9.5
+            <td> 
+              &#10003;
+          <tr> 
+            <td> 
+              IE
+            <td> 
+              9
+            <td> 
+              7
+          <tr> 
+            <td> 
+              iOS
+            <td> 
+              3.2
+            <td> 
+              &#10003;
+          <tr> 
+            <td> 
+              Android
+            <td> 
+              2.1
+            <td> 
+              &#10003;
+          <tr> 
+            <td> 
+              WP7
+            <td> 
+              Mango (IE9)
+            <td> 
+              &#10003;
+          <tr> 
+            <td> 
+              Opera Mini
+            <td> 
+              5.0
+            <td> 
+              &#10003;
+        </table> 
+        <!--
+        <p>
+          <span>
+            Media queries polyfill: <a href="https://github.com/scottjehl/Respond">github.com/scottjehl/Respond</a>
+          </span>
+        </p>
+        -->
+      </article>
+
+      <article class="fill">
+        <h2>
+          JavaScript
+        </h2>
+        <p>
+          <img src="images/coffe_beans.jpg">
+        </p>
+        <div class='source white'>
+          http://flic.kr/p/7bZHcN
+        </div>
+      </article>
+
+      <article class="smaller">
+        <h3>
+          HTML tabell
+        </h3>
+        <section>
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;title&gt;Tabell&lt;/title&gt;
+&lt;div id="page"&gt;
+  &lt;article&gt;
+    Hovedinnhold
+
+    &lt;table&gt;
+      &lt;tr&gt;
+        &lt;th&gt;
+          Fragmentation
+        &lt;th&gt;
+          Solution
+        &hellip;
+      &lt;tr&gt;
+        &lt;td&gt;
+          Encapsulated silicon
+        &lt;td&gt;
+          Infrared transponder
+        &hellip;
+    &lt;/table&gt;
+
+  &lt;/article&gt;
+  &lt;aside&gt;Sekund&aelig;rt innhold&lt;/aside&gt;
+&lt;/div&gt;
+</pre>
+        </section>
+        <div class='source'>
+          <a href="examples/inflexible_table.html">Eksempel</a>
+        </div>
+      </article>
+
+      <article>
+        <h3>
+          Vertikal utlising av tabell
+        </h3>
+        <section>
+<pre>
+table,
+thead,
+tbody,
+tr,
+th,
+td {
+  display: block;
+}
+
+tr {
+  margin-bottom: .5em;
+}
+</pre>
+        </section>
+      </article>
+
+      <article class="smaller">
+        <h3>
+          Normal tabellstil for bredere skjerm
+        </h3>
+        <section>
+<pre>
+@media screen and (min-width: 45em) {
+  table {
+    display: table;
+  }
+
+  tr {
+    display: table-row;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tbody {
+    display: table-row-group;
+  }
+
+  td,
+  th {
+    display: table-cell;
+  }
+}
+</pre>
+        </section>
+        <div class='source'>
+          <a href="examples/flexible_table.html">Eksempel</a>
+        </div>
+      </article>
+
+      <article>
+        <h3>
+          JavaScript for bedre vertikal utlisting
+        </h3>
+        <section>
+<pre>
+var responsiveTables = function() {
+  $("article table").each(function() {
+    var $table = $(this);
+
+    if($table.css("display") === "block") {
+      prependHeadersToTableCells($table);
+    } else if($table.css("display") === "table") {
+      removeHeadersFromTableCells($table);
+    }
+  });
+}
+</pre>
+        </section>
+      </article>
+
+      <article class="smaller">
+        <section>
+<pre>
+var prependHeadersToTableCells = function(table) {
+  var headers = $.map(table.find("th"), function(th) {
+    return $(th).text();
+  });
+
+  table.find("tr").each(function() {
+    var $tr = $(this);
+
+    $tr.find("td").each(function(i) {
+      var $td = $(this);
+      if($td.find(".header").length === 0) {
+        var header = headers[i];
+        $td.html("&lt;strong class='header'&gt;" + header.trim()
+                 + ":&lt;/strong&gt; " + $td.html());
+      }
+    });
+  });
+}
+
+var removeHeadersFromTableCells = function(table) {
+  table.find("tr td .header").remove();
+}
+</pre>
+        </section>
+        <div class='source'>
+          <a href="examples/flexible_table_and_js.html">Eksempel</a>
+        </div>
+      </article>
+
+      <article class="fill">
+        <h2>
+          B&aring;ndbredde
+        </h2>
+        <p>
+          <img src="images/tubes.jpg">
+        </p>
+        <div class='source white'>
+          http://flic.kr/p/CoGbB
+        </div>
+      </article>
+
+      <article>
+        <h3>
+          Lite bakgrunnsbilde for smale skjermer
+        </h3>
+        <section>
+<pre>
+#page {
+  background: transparent url(narrow_bg.png) 50% 0 repeat-y;
+}
+
+@media screen and (min-width: 50em) {
+  #page {
+    background-image: url(wide_bg.png);
+  }
+}
+</pre>
+        </section>
+      </article>
+
+      <article>
+        <h3>
+          Repsonsive bilder
+        </h3>
+        <section>
+<pre>
+&lt;noscript data-widths="400,600,800" data-base-src="responsive.png"&gt;
+  &lt;img src="responsive-400.png"&gt;
+&lt;/noscript&gt;
+</pre>
+        </section>
+      </article>
+
+      <article>
+        <section>
+<pre>
+$("noscript").each(function() {
+  var ns = $(this),
+      best_fit = 0,
+      content_width = ns.parent().width(),
+      img_widths = $.map(ns.data("widths").split(","),
+                         function(width) { return parseInt(width) });
+
+  $.each(img_widths, function(i, img_width) {
+    best_fit = i;
+    return img_width < content_width;
+  });
+
+  var src = ns.data("base-src").replace(/(.+)(\.\w{3})/,
+                    "$1-" + img_widths[best_fit] + "$2")
+  ns.after($("&lt;img&gt;").attr("src", src));
+});
+</pre>
+        </section>
+        <div class='source'>
+          <a href="examples/responsive_images.html">Eksempel</a>
+        </div>
+      </article>
+
+      <article class="fill">
+        <h2>
+          Utbredelse
+        </h2>
+        <p>
+          <img src="images/globe.jpg">
+        </p>
+        <div class='source white'>
+          http://flic.kr/p/8g7mtR
+        </div>
+      </article>
+
+      <article>
+        <h3 class="huge">
+          <a href="http://mediaqueri.es">mediaqueri.es</a>
+          <br>
+          <br>
+          300+ publiserte sider
+          <br>
+          <br>
+          1600+ foresl&aring;tte sider
+        </h3>
+      </article>
+
+      <!--
+      <article class="nobackground">
+        <p>
+          <img class="smartphone" src="images/mq.smartphone.png">
+        </p>
+        <div class='source'>
+          <a href="http://mediaqueri.es/">mediaqueri.es</a>
+        </div>
+      </article>
+
+      <article class="nobackground">
+        <p>
+          <img class="tablet" src="images/mq.tablet.png">
+        </p>
+      </article>
+
+      <article class="nobackground">
+        <p>
+          <img class="desktop" src="images/mq.desktop.png">
+        </p>
+      </article>
+      -->
+
+      <!--
+      <article class="nobackground">
+        <p>
+          <img class="centered" src="images/mention.thenextweb.png">
+        <p>
+          <img class="centered" src="images/mention.khoi.png">
+        <p>
+          <img class="centered" src="images/mention.zeldman.png">
+      </article>
+      -->
+
+      <article class="fill">
+        <p>
+          <img src="images/book.jpg">
+        </p>
+      </article>
+
+      <article class="dark nobackground">
+        <p>
+          <img class="smartphone" src="images/bg.smartphone.png">
+        </p>
+        <div class='source'>
+          <a href="http://bostonglobe.com/">bostonglobe.com</a>
+        </div>
+      </article>
+
+      <article class="dark nobackground">
+        <p>
+          <img class="tablet" src="images/bg.tablet.png">
+        </p>
+      </article>
+
+      <article class="dark nobackground">
+        <p>
+          <img class="desktop" src="images/bg.desktop.png">
+        </p>
+      </article>
+
+      <article>
+        <h3 class="huge">
+          Slides og kode
+          <br>
+          <br>
+          <a href="https://github.com/bekkopen/responsive-web-design-workshop">
+            https://github.com/bekkopen/responsive-web-design-workshop
+          </a>
+        </h3>
+      </article>
+
+      <article class="fill">
+        <p>
+          <img src="images/question.jpg">
+        </p>
+        <div class='source'>
+          http://flic.kr/p/ubG6g
+        </div>
+      </article>
+
+      <article class="fill">
+        <h2>
+          Rammeverk og verktøy
+        </h2>
+        <p>
+          <img src="images/framework_1.jpg">
+        </p>
+        <div class='source white'>
+          http://flic.kr/p/5cHjrz
+          <!-- framework_2 credit: http://flic.kr/p/iy62L -->
+        </div>
+      </article>
+
+
+
+      <article>
+        <h3 class="medium">
+          <br>
+          <span>#1</span> Golden grid system
+          <br>
+          <span>#2</span> 320 and up
+          <br>
+          <span>#3</span> responsive.is
+          <br>
+          <span>#3</span> less/sass
+          <br>
+        </h3>
+      </article>
+
+  </body>
+</html>
