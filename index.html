@@ -17,8 +17,7 @@
     <title>Responsive Web Design</title>
 
     <meta charset='utf-8'>
-    <script
-      src='slides.js'></script>
+    <script src='slides.js'></script>
     <style>
 
       a {
@@ -158,6 +157,10 @@
       height: 100%;
       margin: 0 auto;
     }
+
+    table img {
+      max-width: 100%;
+    }
     </style>
   </head>
 
@@ -229,23 +232,32 @@
 
       <article class="dark nobackground">
         <p>
-          <img class="desktop" src="images/bk.desktop.png">
-        </p>bytt til avinor skjermbilder
+          <img class="desktop" src="images/avinor.desktop.png">
+        </p>
         <div class='source'>
-          <a href="http://bekk.no/">bekk.no</a>
+          <a href="http://avinor.no/">avinor.no</a>
         </div>
       </article>
 
       <article class="dark nobackground">
         <p>
-          <img class="tablet" src="images/bk.tablet.png">
+          <img class="tablet" src="images/avinor.tablet.png">
         </p>
       </article>
 
       <article class="dark nobackground">
         <p>
-          <img class="smartphone" src="images/bk.smartphone.png">
+          <img class="smartphone" src="images/avinor.smartphone.png">
         </p>
+      </article>
+
+      <article class="fill">
+        <p>
+          <img src="images/devices.jpg" width="100%">
+        </p>
+        <div class='source white'>
+          http://flic.kr/p/anLArh
+        </div>
       </article>
 
       <article class="fill">
@@ -280,18 +292,21 @@
         </p>
       </article>
 
+      <article class="fill">
+        <p>
+          <img src="images/devices.jpg" width="100%">
+        </p>
+        <div class='source white'>
+          http://flic.kr/p/anLArh
+        </div>
+      </article>
+
       <article class="dark">
         <h3 class="huge">
           <br>
           <br>
           <br>
           Responsive Web Design
-          
-          legg til slides om innholds og navigasjonsstrategier
-          http://www.lukew.com/ff/entry.asp?1514
-          http://bradfrostweb.com/blog/web/responsive-nav-patterns/
-          
-          eksempel med bildene fra bekk folk f.eks.
         </h3>
       </article>
 
@@ -361,16 +376,6 @@
         </div>
       </article>
 
-      <article>
-        <q>
-          Responsiveness isn't just something we can build into our product.
-          It's an attitute we can adopt.
-        </q>
-        <div class="author">
-          Wilson Miner
-        </div>
-      </article>
-
       <article class="dark">
         <!--
         <h3>
@@ -387,6 +392,9 @@
           <br>
           <span>#3</span> Media queries
         </h3>
+        <!-- Definisjonen på responsive web design ifølge 
+             Ethan Marcotte.
+         -->
       </article>
 
       <article class="fill">
@@ -701,6 +709,72 @@ img {
         </div>
       </article>
 
+      <article>
+        <q>
+          Responsiveness isn't just something we can build into our product.
+          It's an attitute we can adopt.
+        </q>
+        <div class="author">
+          Wilson Miner
+        </div>
+      </article>
+
+      <article class="fill">
+        <h2>
+          Innholds- og navigasjons-strategier
+        </h2>
+        <p>
+          <img src="images/newspaper.jpg">
+        </p>
+        <div class='source white'>
+          http://flic.kr/p/ayGkgu
+        </div>
+      </article>
+
+
+      <article class="smaller">
+        <h3>
+          Innholdsstrategier
+        </h3>
+
+        <table style="margin: 0">
+          <tr>
+            <td>Mostly fluid<img src="images/lukew-mostly-fluid.png"></td>
+            <td>Column drop<img src="images/lukew-column-drop.png"></td>
+          </tr>
+          <tr>
+            <td>Layout shifter<img src="images/lukew-layout-shifter.png"></td>
+            <td>Tiny tweaks<img src="images/lukew-tiny-tweaks.png"></td>
+          </tr>
+        </table>
+
+        <div class='source'>
+          <a href="http://www.lukew.com/ff/entry.asp?1514">http://www.lukew.com/ff/entry.asp?1514</a>
+        </div>
+      </article>
+
+      <article class="smaller">
+        <h3>
+          Navigasjonsstrategier
+        </h3>
+
+        <table style="margin: 0">
+          <tr>
+            <td>Top menu<img src="images/brad-top.png"></td>
+            <td>The footer anchor<img src="images/brad-footer.png"></td>
+          </tr>
+          <tr>
+            <td>The toggle<img src="images/brad-toggle.png"></td>
+            <td>The left nav flyout<img src="images/brad-left-nav-flyout.png"></td>
+          </tr>
+        </table>
+
+        <div class='source'>
+          <a href="http://bradfrostweb.com/blog/web/responsive-nav-patterns/">http://bradfrostweb.com/blog/web/responsive-nav-patterns/</a>
+        </div>
+      </article>
+
+
       <article class="fill">
         <h2>
           Nettleserst&oslash;tte
@@ -795,6 +869,7 @@ img {
         -->
       </article>
 
+<!--
       <article class="fill">
         <h2>
           JavaScript
@@ -953,6 +1028,7 @@ var removeHeadersFromTableCells = function(table) {
           <a href="examples/flexible_table_and_js.html">Eksempel</a>
         </div>
       </article>
+    -->
 
       <article class="fill">
         <h2>
@@ -1109,15 +1185,91 @@ $("noscript").each(function() {
         </p>
       </article>
 
-      <article>
-        <h3 class="huge">
-          Slides og kode
-          <br>
-          <br>
-          <a href="https://github.com/bekkopen/responsive-web-design-workshop">
-            https://github.com/bekkopen/responsive-web-design-workshop
-          </a>
-        </h3>
+      <article class="fill">
+        <h2>
+          Bruksområder
+        </h2>
+        <p>
+          <img src="images/surgical-tools.jpg">
+        </p>
+        <div class='source black'>
+          http://flic.kr/p/8iy9Dy
+        </div>
+      </article>
+      
+      <article class="nobackground">
+        <p>
+          <img class="smartphone" src="images/one.smartphone.png">
+        </p>
+        <div class='source'>
+          <a href="http://one.ubuntu.com/">one.ubuntu.com</a>
+        </div>
+        <!--
+          Responsive web design egner seg veldig godt til typiske infosider, som en salgside for et produkt,
+          hvor innholdet ikke skiller seg fra stor og liten flate.
+          
+          Selv om innhold endrer seg, så egner responsive web design seg veldig godt hvis det er samme
+          bruksoppgave brukeren gjør uavhengig av flate, f.eks. lese nyheter, se på en annonse.
+         -->
+      </article>
+      
+      <article class="nobackground">
+        <p>
+          <img class="tablet" src="images/one.tablet.png">
+        </p>
+      </article>
+
+      <article class="nobackground">
+        <p>
+          <img class="desktop" src="images/one.desktop.png">
+        </p>
+      </article>
+      
+      <article class="nobackground">
+        <p>
+          <img class="smartphone" src="images/sparebank1.smartphone.png">
+        </p>
+        <div class='source'>
+          <a href="http://m.sparebank1.no/">m.sparebank1.no</a>
+        </div>
+        <!--
+          Responsive web design egner seg ikke når du ender opp med å vise irrelevant innhold eller
+          utfordrer ytelsen (f.eks. ved å laste for stor css, js, og bilder).
+          
+          Det kan også være en god idé å lage seperate sider når du tror brukeren har forskjellige
+          mål med å besøke siden. 
+          
+          m.sparebank1.no og andre nettbanker er eksempler hvor man kan forvente
+          at brukssituasjonen er forskjellig, og gir man mulighet til å skreddersy løsninger til disse
+          situasjonene.
+          
+          m.sas.no og m.nsb.no er andre som har valgt å anta at brukeren har et annet formål med et
+          besøk til deres sider fra mobilen.
+          
+          Det man ikke må glemme hvis man går for en løsning for mobil og en løsning for desktop, er at
+          innenfor disse gruppene må man fortsatt være responsiv.
+          
+          En konklusjon kan kanskje være at det er ikke skjermstørrelse som avgjør om du bør lage en
+          responsiv side eller ikke, det er brukersituasjonen.
+         -->
+      </article>
+      
+      <article class="nobackground">
+        <p>
+          <img class="smartphone" src="images/sandnes.smartphone.jpg">
+        </p>
+        <div class='source'>
+          <a href="https://www.sandnes-sparebank.no/">sandnes-sparebank1.no</a>
+        </div>
+      </article>
+
+      <article class="nobackground">
+        <p>
+          <img class="smartphone" src="images/nsb.smartphone.png">
+        </p>
+        <div class='source'>
+          <a href="https://m.nsb.no/">m.nsb.no</a>
+        </div>
       </article>
 
       <article class="fill">
@@ -1129,6 +1281,60 @@ $("noscript").each(function() {
         </div>
       </article>
 
+      <article>
+        <h3 class="huge">
+          Slides og kode
+          <br>
+          <br>
+          <a href="https://github.com/hcf/responsive-web-design">
+            https://github.com/hcf/<br>responsive-web-design
+          </a>
+        </h3>
+      </article>
+
+      <article>
+        <br><br><br><br><br>
+        <h3 class="huge">mål ÷ kontekst = resultat</h3>
+        
+        
+        <!-- 
+          mål:      ønskelig mål sett i perspektiv av helheten
+          kontekst: hva det skal brukes som utgangspunkt i utregningen, ofte bredden til boksen du er innenfor
+          resultat: relativ størrelse mellom mål og kontekst, gang med 100% for å få i prosent
+        
+          Det som er vanskelig med denne formelen er å vite hva som er kontekst:
+          
+          For marginer er kontekst hele bredden av rammene boksen skal plasseres innenfor, mens
+          for padding er konteksten selve boksen du skal tegne opp. Dette kommer naturlig av hvordan
+          html boksmodellen fungerer, hvor padding bidrar til bredden av boksen, mens marginene går
+          på utsiden av boksen.
+          
+          Formelen kan brukes uavhengig av enhet som vi vil se nå.
+          
+          Eksempel med piksler:
+          
+          300px ÷ 1000px * 100% = 30%
+          300px ÷  650px * 100% = 46.153846154%
+          
+          Eksempel med prosent:
+          
+          5% ÷ 65% * 100% = 7.692307692% 
+        -->
+      </article>
+
+      <article>
+        <h3>Avansert flytende grid</h3>
+        <p><img src="images/fluid-grid.png" class="centered"></p>
+        
+        <!--
+          Utregningen blir mer avansert med en gang vi får kollonner inni en annen kollonne.          
+        -->
+        <div class='source'>
+          <a href="examples/advanced_fluid_grid.html">Eksempel</a>
+        </div>
+      </article>
+
+<!--
       <article class="fill">
         <h2>
           Rammeverk og verktøy
@@ -1138,12 +1344,11 @@ $("noscript").each(function() {
         </p>
         <div class='source white'>
           http://flic.kr/p/5cHjrz
-          <!-- framework_2 credit: http://flic.kr/p/iy62L -->
         </div>
       </article>
+-->
 
-
-
+<!--
       <article>
         <h3 class="medium">
           <br>
@@ -1157,6 +1362,6 @@ $("noscript").each(function() {
           <br>
         </h3>
       </article>
-
+-->
   </body>
 </html>
